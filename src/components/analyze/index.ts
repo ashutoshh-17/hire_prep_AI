@@ -1,2 +1,2 @@
 export { UploadZone } from "./UploadZone";
-export { JobTitleInput } from "./JobTitleInput";
+export { JobDescriptionInput } from "./JobDescriptionInput";

@@ -2,21 +2,21 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
+    name: "Ashutosh Waghire",
     role: "Software Engineer",
     company: "Google",
     content: "HirePrepAI helped me identify key skills I was missing for my dream role. Within two weeks of updating my resume, I landed interviews at three top tech companies!",
     rating: 5,
   },
   {
-    name: "Michael Johnson",
+    name: "Geetesh Karjavkar",
     role: "Product Manager",
     company: "Meta",
     content: "The AI analysis was incredibly accurate. It pointed out gaps in my PM experience that I hadn't even considered. Highly recommend for anyone serious about their career.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
+    name: "Saloni More",
     role: "Data Scientist",
     company: "Netflix",
     content: "I was skeptical at first, but the skill gap analysis was spot-on. The suggestions were actionable and helped me focus my learning on what really matters.",

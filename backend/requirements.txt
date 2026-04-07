@@ -1,0 +1,17 @@
+# ── Runtime (backend server) ─────────────────────────────────────────
+fastapi
+uvicorn
+python-multipart
+pypdf
+python-dotenv
+spacy[transformers]
+sentence-transformers
+
+# PyTorch — CPU inference (replace cu128 with your CUDA version if using GPU)
+# For RTX 5050 GPU support: https://download.pytorch.org/whl/cu128
+torch
+
+# ── Training only (reinstall when retraining the NER model) ──────────
+# pandas
+# datasets
+# scikit-learn

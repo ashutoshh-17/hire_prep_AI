@@ -30,6 +30,7 @@ export interface AnalysisResult {
   matchedSkills: MatchedSkill[];
   suggestions: Suggestion[];
   summary: string;
+  extractedResumeSkills: string[];
 }
 
 export interface UploadState {

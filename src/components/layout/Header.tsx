@@ -20,7 +20,6 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50 theme-transition">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
               <FileText className="w-5 h-5 text-white" />
@@ -28,7 +27,6 @@ export function Header() {
             <span className="text-xl font-bold gradient-text">HirePrepAI</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -45,21 +43,14 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Link to="/auth" className="hidden md:block">
-              <Button variant="outline" size="sm" className="theme-transition">
-                Sign In
-              </Button>
+              <Button variant="outline" size="sm" className="theme-transition">Sign In</Button>
             </Link>
             <Link to="/analyze" className="hidden md:block">
-              <Button size="sm" className="gradient-primary text-white hover:opacity-90 transition-opacity">
-                Get Started
-              </Button>
+              <Button size="sm" className="gradient-primary text-white hover:opacity-90 transition-opacity">Get Started</Button>
             </Link>
-
-            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
@@ -71,7 +62,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border/50 animate-fade-in">
             <div className="flex flex-col gap-2">
@@ -91,14 +81,10 @@ export function Header() {
               ))}
               <div className="flex gap-2 mt-2 px-4">
                 <Link to="/auth" className="flex-1" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full">
-                    Sign In
-                  </Button>
+                  <Button variant="outline" size="sm" className="w-full">Sign In</Button>
                 </Link>
                 <Link to="/analyze" className="flex-1" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button size="sm" className="w-full gradient-primary text-white">
-                    Get Started
-                  </Button>
+                  <Button size="sm" className="w-full gradient-primary text-white">Get Started</Button>
                 </Link>
               </div>
             </div>
