@@ -136,4 +136,36 @@
   .theme-transition {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   }
+
+  /* PDF Preview animations */
+  .pdf-preview-enter {
+    animation: pdf-fade-in 0.3s ease-out;
+  }
+
+  .pdf-preview-slide-down {
+    animation: pdf-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: top center;
+  }
+
+  @keyframes pdf-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pdf-slide-down {
+    from {
+      opacity: 0;
+      transform: scaleY(0.95) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1) translateY(0);
+    }
+  }
 }

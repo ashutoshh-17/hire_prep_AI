@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
-import { Upload, FileText, X, AlertCircle } from "lucide-react";
+import { Upload, FileText, X, AlertCircle, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PdfPreview } from "./PdfPreview";
 
 interface UploadZoneProps {
   onFileSelect: (file: File) => void;
@@ -11,6 +12,7 @@ interface UploadZoneProps {
 
 export function UploadZone({ onFileSelect, selectedFile, onClearFile, error }: UploadZoneProps) {
   const [isDragging, setIsDragging] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -58,27 +60,46 @@ export function UploadZone({ onFileSelect, selectedFile, onClearFile, error }: U
 
   if (selectedFile) {
     return (
-      <div className="relative p-6 rounded-2xl glass border border-success/50 theme-transition">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-success/10 flex items-center justify-center">
-            <FileText className="w-7 h-7 text-success" />
+      <>
+        <div className="relative p-6 rounded-2xl glass border border-success/50 theme-transition">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl bg-success/10 flex items-center justify-center">
+              <FileText className="w-7 h-7 text-success" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium truncate">{selectedFile.name}</p>
+              <p className="text-sm text-muted-foreground">
+                {(selectedFile.size / 1024 / 1024).toFixed(2)} MB • PDF
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPreviewOpen(true)}
+              className="gap-2 text-primary border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all"
+              id="pdf-preview-open-btn"
+            >
+              <Eye className="w-4 h-4" />
+              Preview
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onClearFile}
+              className="text-muted-foreground hover:text-destructive"
+            >
+              <X className="w-5 h-5" />
+            </Button>
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-medium truncate">{selectedFile.name}</p>
-            <p className="text-sm text-muted-foreground">
-              {(selectedFile.size / 1024 / 1024).toFixed(2)} MB • PDF
-            </p>
-          </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClearFile}
-            className="text-muted-foreground hover:text-destructive"
-          >
-            <X className="w-5 h-5" />
-          </Button>
         </div>
-      </div>
+
+        {/* PDF Preview Modal */}
+        <PdfPreview
+          file={selectedFile}
+          open={previewOpen}
+          onOpenChange={setPreviewOpen}
+        />
+      </>
     );
   }
 
